@@ -1,0 +1,136 @@
+<!DOCTYPE <html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon the Biff</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head> 
+<body>
+    <script>
+        var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
+        
+                var processName = function(album){
+                    var list = document.querySelector('#albuminfo ol');
+                    for(var i=0; i<album.length; i++) {
+                        var list_album = document.createElement('li');
+                        var text_album = document.createTextNode(album[i].name)
+                        list_album.appendChild(text_album);
+                        list.appendChild(list_album);
+                    }
+                }
+                var parseResponse = function() {
+                var response = JSON.parse(this.response);
+                var u = response.album.image[3];
+                var imgurl = (u['#text']);
+                processName(response.album.tracks.track);
+                console.log(imgurl);
+                var albumart = document.querySelector('#album_art');
+                albumart.src = imgurl;
+                console.log(response);
+
+
+
+                
+                }
+            
+            
+            // Sends the request to the API //
+            var GetData = function()  {
+                var eID = document.getElementById("albums");               // Selects the chosen album form the drop down box 
+                    var AlbumVal = eID.options[eID.selectedIndex].value;  
+                    albums = AlbumVal.replace(/\s/g, "+")                  // Inserts '+' in white spaces to allow request to send the complete album name 
+                    
+                var xhttp = new XMLHttpRequest();
+                xhttp.addEventListener('load', parseResponse);   
+                var url = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
+                console.log(url);
+                xhttp.open('GET', url, );
+                xhttp.send();
+               
+                
+        }
+        </script>
+    <header>
+
+        <h1 id ="title" >MON THE BIFF</h1>   
+           
+                <div class= "navbar">
+                  <div class ="dropdown">
+                  <button class = "dropbtn" ><i class = "fa fa-bars"></i> </button> 
+                  <div class = "dropdown-content">   
+                        <ul>
+                        <li><a  href="home.html">Home</a></li> 
+                        <li><a  href="music.html">Music</a></li> 
+                        <li><a  href="biographic">Biographic</a></li> 
+                        <li><a  href="home.html">Events</a></li> 
+                        <li><a  href="home.html">Shop</a></li>  
+                        </ul> 
+                  </div>
+                  </div>
+                  <ul>
+                  <li><a class= "tabs" href="home.html">Home</a></li> 
+                  <li><a class= "tabs" href="music.html">Music</a></li> 
+                  <li><a class= "tabs" href="biographic.html">Biographic</a></li> 
+                  <li><a class= "tabs" href="home.html">Events</a></li> 
+                  <li><a class= "tabs" href="home.html">Shop</a></li> 
+                  </ul>
+                  <ul class ="social-tab">
+                  <li><a href="https://twitter.com/BiffyClyro?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.facebook.com/biffyclyro/"><i class="fa fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.instagram.com/biffy_clyro/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UC66Uan5Ezzs0pWbFI3wF-Tw"><i class="fa fa-youtube-play"></i></a></li>
+                  
+                </ul> 
+              </div> 
+            
+    
+    </header>
+        <main>
+            
+
+    
+    <div class = "body">
+        <div class = "btn-search">
+
+                <p>  Please Select an Album  <p> 
+
+            
+            
+                <select id = "albums">
+                  <option value="Blackened Sky">Blackened Sky</option>
+                  <option value="The Vertigo of Bliss">The Vertigo of Bliss</option>
+                  <option value="Infinity Land">Infinity Land</option>
+                  <option value="Puzzle">Puzzle</option>
+                  <option value="Only Revolutions">Only Revolutions</option>
+                  <option value="Opposites">Opposites</option>
+                  <option value="Ellipsis">Ellipsis</option>
+                </select>
+                <br><br>
+                <button onclick= "GetData()">Get Album</button>
+            
+             
+            <script>
+                
+                </script>
+        </div>
+        <div id = "albuminfo">
+           <h3>tracks</h3> 
+            <ol>
+             
+            
+            </ol>
+        </div>
+    <div id = "albumpic">
+        <img src="" alt="Album Picture" id="album_art">
+
+        
+
+        </div>
+
+        
+        
+        </main>
+</body>   
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE <html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon the Biff</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head> 
+<body>
+    <header>
+
+        <h1 id ="title" >MON THE BIFF</h1>   
+           
+                <div class= "navbar">
+                  <div class ="dropdown">
+                  <button class = "dropbtn" ><i class = "fa fa-bars"></i> </button> 
+                  <div class = "dropdown-content">   
+                        <ul>
+                        <li><a  href="http://github.com">Home</a></li> 
+                        <li><a  href="http://github.com">Music</a></li> 
+                        <li><a  href="http://github.com">Biographic</a></li> 
+                        <li><a  href="http://github.com">Events</a></li> 
+                        <li><a  href="http://github.com">Shop</a></li>  
+                        </ul> 
+                  </div>
+                  </div>
+                  <ul class = "nav-tab">
+                  <li><a class= "tabs" href="http://github.com">Home</a></li> 
+                  <li><a class= "tabs" href="http://github.com">Music</a></li> 
+                  <li><a class= "tabs" href="http://github.com">Biographic</a></li> 
+                  <li><a class= "tabs" href="http://github.com">Events</a></li> 
+                  <li><a class= "tabs" href="http://github.com">Shop</a></li> 
+                  </ul>
+                  <ul class ="social-tab">
+                  <li><a href="https://twitter.com/BiffyClyro?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.facebook.com/biffyclyro/"><i class="fa fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.instagram.com/biffy_clyro/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UC66Uan5Ezzs0pWbFI3wF-Tw"><i class="fa fa-youtube-play"></i></a></li>
+                  
+                </ul> 
+              </div> 
+            
+    
+    </header>
+        <main>
+            <script>
+                    var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
+            
+                    function findAlbum(){
+                        
+                    }
+                    var parseResponse = function() {
+                    var response = JSON.parse(this.response);
+                    console.log(response);  
+                    }
+                var processResponse = function (){
+                    console.log(this);
+                }
+                // Sends the request to the API //
+                var GetData = function()  {
+                    var eID = document.getElementById("albums");               // Selects the chosen album form the drop down box 
+                        var AlbumVal = eID.options[eID.selectedIndex].value;  
+                        albums = AlbumVal.replace(/\s/g, "+")                  // Inserts '+' in white spaces to allow request to send the complete album name 
+                        console.log(albums)
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.addEventListener('load', parseResponse);   
+                    var url = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
+                    console.log(url);
+                    xhttp.open('GET', url, true);
+                    xhttp.send();
+            }
+            </script>
+
+    
+    <div class = "bodyimg">
+        <img src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt="Biffy Clyro Band photo" width=100%/>
+        <div class= "txt-img"> <h1> BIFFY CLYRO </h1> </div>
+        
+        </main>
+</body>   
+</html>
