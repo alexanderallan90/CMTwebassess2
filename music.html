@@ -114,10 +114,11 @@
             var login_link = document.querySelector('#login');
                 login.href = url;
             
-          
-            
+      
+            }   
             var extractParameters = function(){
-                
+                var query = window.location.hash;
+              
                 var params = query.split('&');
                
 
@@ -130,7 +131,7 @@
             }
             return return_data;
             }
-          
+            console.log(extractParameters());
         
             
             var parameters =extractParameters();
