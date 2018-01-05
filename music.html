@@ -28,15 +28,14 @@
         scope: 'user-read-recently-played playlist-read-private playlist-modify-private'
 
     }
-    var AuthSpot = function(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.addEventListener('load', parseResponse);
     var url = baseurl + encodeParameters(parameters);
-    console.log(url);
-    xhttp.open('GET', url);
-    xhttp.send();
+    var login_link = document.querySelector('#login');
+        login.href = query_url;
+  
+    
+    
              }
-            window.onload = AuthSpot();
+        
 
         var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
         
@@ -138,7 +137,7 @@
                 </select>
                 <br><br>
                 <button onclick= "GetData()">Get Album</button>
-                <button onclick= "AuthSpot()">Log in</button>
+                <button id = 'Login'>Log in</button>
             
              
             <script>
