@@ -112,7 +112,6 @@
         
             }
             var url = baseurl + encodeParameters(parameters);
-            console.log(url);
             var login_link = document.querySelector('#login');
                 login.href = url;
           
@@ -127,15 +126,11 @@
 
                 for (var i=0  ; i< params.length; i++){
                 var keyvalue = params[i].split('=');  
-                console.log(keyvalue);
+                
                 return_data[keyvalue[0]] = keyvalue[1];
             }
             return return_data;
             }
-           
-            
-
-            console.log (extractParameters());
 
             var token = (extractParameters(['#access_token']));
             var token1 = (token['#access_token']);
