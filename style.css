@@ -24,6 +24,15 @@
     top: 100%;
 
  }
+ .imagebackground p #albums{
+    position: absolute; 
+    top: 200px; 
+    left: 0; 
+    width: 100%; 
+    color: white;
+    top: 100%;
+
+ }
 
  .bodyimg h1 span { 
     color: white; 
