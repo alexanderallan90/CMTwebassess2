@@ -115,12 +115,23 @@
                 login.href = url;
             
             var gettoken =  function(){
-            console.log(window.location.hash);
-            console.log(window.location.hash.substring[1]);      
+            console.log(window.location.hash);      
             var extractParameters = function(){
                 var query = window.location.hash.substring[1];
                 console.log(query);
-            extractParameters();
+                var params = query.split('&');
+                console.log(params);
+
+                var return_data = {}
+
+                for (var i=0  ; i< params.length; i++){
+                var keyvalue = params[i].split('=');  
+                console.log(keyvalue);
+                return_data[keyvalue[0]] = keyvalue[1];
+            }
+            return return_data;
+            }
+            console.log(extractParameters());
         }
             gettoken();
                      
