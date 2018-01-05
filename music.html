@@ -9,6 +9,19 @@
 </head> 
 <body>
     <script>
+            var AuthSpot = function(){
+            var spotxhttp = new XMLHttpRequest();
+            var spotclient_id = 'e958c04c91ba49ec9698bbcbd5b2a480'
+             var spotresponse_type = 'token'
+             var spotredirect_url = 'https://alexanderallan90.github.io/github/music'
+             var spotshow_dialog = 'user-read-private%20user-read-email'
+             var Spoturl = 'https://accounts.spotify.com/authorize/?client_id='+ spotclient_id +'&response_type=code&redirect_uri=' + spotredirect_url + 'callback&scope=&state=34fFs29kd09' + spotshow_dialog
+             console.log(Spoturl)
+             spotxhttp.open('GET',Spoturl);
+             spotxhttp.send();
+        }
+            window.onload = AuthSpot();
+
         var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
         
                 var processName = function(album){
@@ -109,6 +122,7 @@
                 </select>
                 <br><br>
                 <button onclick= "GetData()">Get Album</button>
+                <button onclick= "AuthSpot()">Log in</button>
             
              
             <script>
