@@ -114,28 +114,27 @@
             var login_link = document.querySelector('#login');
                 login.href = url;
             
-      
-            }   
+            
+            
             var extractParameters = function(){
-                var query = window.location.hash;
-              
+                var query = window.location.hash.substring[1];
+                console.log(query);
                 var params = query.split('&');
-               
+                console.log(params);
 
                 var return_data = {}
 
                 for (var i=0  ; i< params.length; i++){
                 var keyvalue = params[i].split('=');  
-                
+                console.log(keyvalue);
                 return_data[keyvalue[0]] = keyvalue[1];
             }
             return return_data;
             }
             console.log(extractParameters());
         
-            
-            var parameters =extractParameters();
-            console.log(parameters['access_token']);
+            gettoken();
+            extractParameters()
                      
                 
         
