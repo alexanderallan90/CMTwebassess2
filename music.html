@@ -29,6 +29,8 @@
 
     }
     var AuthSpot = function(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.addEventListener('load', parseResponse);
     var url = baseurl + encodeParameters(parameters);
     console.log(url);
     xhttp.open('GET', url);
