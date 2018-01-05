@@ -69,6 +69,7 @@
                 <br><br>
                 <button><a href ='' id ='login'>Log in </a></button>
                 <button onclick= "GetData()">Get Album</button>
+                <button onclick= "GetToken()">Get token </button>
                  
             
              
@@ -114,9 +115,12 @@
             console.log(url);
             var login_link = document.querySelector('#login');
                 login.href = url;
-          
             
+            var gettoken =  function(){
+            console.log(window.location.hash);
+            }
             
+            gettoken();
                      
                 
         
