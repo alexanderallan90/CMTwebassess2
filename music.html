@@ -115,11 +115,11 @@
             console.log(url);
             var login_link = document.querySelector('#login');
                 login.href = url;
-           console.log(window.location);
+           console.log(window.location.hash);
           
             var extractParameters = function(){
                 
-                var query = window.location;
+                var query = window.location.hash;
                 var params = query.split('&');
 
                 var return_data = {}
