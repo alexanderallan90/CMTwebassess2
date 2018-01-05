@@ -73,7 +73,9 @@
                  
             
              
-            
+            <script>
+                
+                </script>
         </div>
         <div id = "albuminfo">
            <h3>tracks</h3> 
@@ -114,12 +116,10 @@
             var login_link = document.querySelector('#login');
                 login.href = url;
             
-            
-            
+          
             var extractParameters = function(){
-                var query = window.location.hash.substring[1];  
+                var query = window.location.hash.substring[1];
                 var params = query.split('&');
-                console.log(params);
 
                 var return_data = {}
 
@@ -128,9 +128,9 @@
                 console.log(keyvalue);
                 return_data[keyvalue[0]] = keyvalue[1];
             }
-            return return_data;
+            return_data;
             }
-            var parameters = extractParameters();
+            
             
                      
                 
@@ -176,7 +176,7 @@
                         xhttp.send();
                        
                         
-                    }
+                }
                 </script>
         
         </main>
