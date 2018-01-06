@@ -71,6 +71,7 @@
                 <button onclick= "GetData()">Get Album</button>
                 
                 
+                
                  
             
              
@@ -180,11 +181,11 @@
                         var url = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
                         xhttp.open('GET', url, );
                         xhttp.send();
-                        Spotdata;
+                        
                         
                         
                     
-                    }
+                    
                     var Spotdata = function (){
                     var  base_url =  'https://api.spotify.com/v1/search' 
                     
@@ -205,7 +206,7 @@
                     xhttp.setRequestHeader('Authorization','Bearer ' + token1)
                     xhttp.send();
                     }
-                    
+                    }
                     
                     
 
