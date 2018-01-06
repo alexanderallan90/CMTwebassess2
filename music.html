@@ -95,7 +95,7 @@
 
         <script>
         
-                var encodeParameters = function(params) {
+        var encodeParameters = function(params) {
                   var strArray = [];
             for (var key in params) {
                 if (params.hasOwnProperty(key)) {
@@ -114,9 +114,7 @@
                 scope: 'user-read-recently-played playlist-read-private playlist-modify-private'
         
             }
-            var url = baseurl + encodeParameters(parameters);
-            var login_link = document.querySelector('#login');
-                login.href = url;
+           
           
             
           
