@@ -190,8 +190,9 @@ var extractParameters = function(){
              var id = document.querySelector("#id")
              id.innerHTML = albumid;
                     } 
-            var id = document.getElementById('id').innerHTML
-            console.log(id);
+            var id = document.getElementById('id')
+            console.log(id.innerHTML);
+
                     
         var trackparse = function(){
             response = JSON.parse(this.response);
@@ -207,7 +208,8 @@ var extractParameters = function(){
         xhttp.setRequestHeader('Authorization','Bearer ' + token1);
         xhttp.send(); 
 
-        track_url = "https://api.spotify.com/v1/albums/"+id+"/tracks"
+        track_url = "https://api.spotify.com/v1/albums/"+id.innerhtml+"/tracks"
+        console.log(track_url);
 
         var xhttp = new XMLHttpRequest();
         xhttp.addEventListener('load', trackparse)
