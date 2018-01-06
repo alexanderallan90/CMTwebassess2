@@ -196,6 +196,7 @@ var extractParameters = function(){
                     
         var trackparse = function(){
             response = JSON.parse(this.response);
+            console.log(response);
 
         } 
 
@@ -215,6 +216,7 @@ var extractParameters = function(){
         xhttp.addEventListener('load', trackparse)
         xhttp.open('GET', track_url);
         xhttp.setRequestHeader('Authorization','Bearer ' + token1);
+        xhttp.send();
          
                     }
                     
