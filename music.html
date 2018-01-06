@@ -184,11 +184,12 @@
                         xhttp.send();
                     
                         
-                        
+                    }
                         
                     
                     
                     var Spotdata = function (){
+                      console.log(document.getElementById('album-name').innerHTML);
                     var  base_url =  'https://api.spotify.com/v1/search' 
                     var  spotParameters = {
                     q : document.getElementById('album-name').innerHTML , // selects the album name from the returned value of the LastFM API
@@ -208,7 +209,7 @@
                     xhttp.setRequestHeader('Authorization','Bearer ' + token1)
                     xhttp.send();
                     }
-                    }
+                    
                     
                     
 
