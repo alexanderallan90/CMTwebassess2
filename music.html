@@ -160,20 +160,16 @@
                         
                     
                     
-                    var Spotdata = function (){
+var Spotdata = function (){
                 
                 
                 var extractParameters = function(){
-                
                 var query = window.location.hash;
                 var params = query.split("&");
-
-                var return_data = {}
-
+                var return_data = {};
                 for (var i=0  ; i< params.length; i++){
                 var keyvalue = params[i].split('=');  
-                
-                return_data[keyvalue[0]] = keyvalue[1];
+                 return_data[keyvalue[0]] = keyvalue[1];
             }
             return return_data;
             }
