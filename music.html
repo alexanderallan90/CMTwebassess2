@@ -79,6 +79,7 @@
                 </script>
         </div>
         <div id = "albuminfo">
+        <h2 id="album-name">  </h2>
            <h3>tracks</h3> 
             <ol id = "list">
              
@@ -104,16 +105,9 @@
                 }
             }
             return strArray.join("&");}
-                baseurl = 'https://accounts.spotify.com/authorize/?'
-        
-                parameters = {
-                client_id: 'e958c04c91ba49ec9698bbcbd5b2a480',
-                response_type: 'token',
-                redirect_uri: 'https://alexanderallan90.github.io/CMTwebassess2/music.html',
-                show_dialog: true,
-                scope: 'user-read-recently-played playlist-read-private playlist-modify-private'
-        
-            }
+                
+            
+                
            
           
             
@@ -147,28 +141,31 @@
                         var processName = function(album){
                             var list = document.getElementById('list');   // deletes all track names that are already in the list 
                             list.innerHTML="";
-                            var list = document.querySelector('#albuminfo ol')
+                            var list = document.querySelector('#albuminfo ol')  // loops through all track names
                             for(var i=0; i<album.length; i++) {
-                                var list_album = document.createElement('li');
+                                var list_album = document.createElement('li');   
                                 var text_album = document.createTextNode(album[i].name)
-                                list_album.appendChild(text_album);
+                                list_album.appendChild(text_album);             // adds them to list 
                                 list.appendChild(list_album);
                             }
                         }
-                        var parseResponse = function() {
-                        var response = JSON.parse(this.response);
-                        var u = response.album.image[3];
-                        var imgurl = (u['#text']);
-                        processName(response.album.tracks.track);
-                        console.log(imgurl);
-                        var albumart = document.querySelector('#album_art');
-                        albumart.src = imgurl;
-                        console.log(response);
-        
-        
-        
+                        var parseResponse = function() {    // This function parses through returned data from LastFM
+                        var response = JSON.parse(this.response);    
+                        var u = response.album.image[3];        // Finds the album art url 
+                        var imgurl = (u['#text']);  
+                        processName(response.album.tracks.track);  
+                        var albumart = document.querySelector('#album_art'); 
+                        albumart.src = imgurl;                              // sets image url for album art
+                        name = response.album.name;                            // finds name of the album 
+                        var albumName = document.querySelector("#album-name"); 
+                        albumName.innerHTML = name;
                         
                         }
+                
+                    var parseSpotify = function () {
+                        var resonse = JSON.parse(this.response);
+                        console.log (response);
+                    }
                     
                     
                     // Sends the request to the API //
@@ -181,14 +178,37 @@
                         var xhttp = new XMLHttpRequest();
                         xhttp.addEventListener('load', parseResponse);   
                         var url = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
-                        console.log(url);
                         xhttp.open('GET', url, );
                         xhttp.send();
-                        var element = document.getElementById("#albuminfo ol");
-                       
-                       
                         
-                }
+                    
+                    }
+                   
+                    var  base_url =  'https://api.spotify.com/v1/search' 
+                    
+                    var  spotParameters = {
+                    q : document.getElementById('album-name').innerHTML , // selects the album name from the returned value of the LastFM API
+                    type: "album",
+                    }
+                    var search_url = base_url + "?" + encodeParameters(spotParameters);
+                    console.log(search_url);
+                    
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open('GET', search_url);
+                    xhttp.addEventListener('load', function(){
+                        console.log(this.response);
+                    });
+                    xhttp.setRequestHeader('Authorization','Bearer ' + token1)
+                    xhttp.send();
+                    
+                    
+                    
+
+            
+        
+      
+                        
+                
                 </script>
         
         </main>
