@@ -107,37 +107,10 @@
                     strArray.push(paramString);
                 }
             }
+        
             return strArray.join("&");}
                 
-            
-                
-           
-          
-            
-          
-            var extractParameters = function(){
-                
-                var query = window.location.hash;
-                var params = query.split("&");
-
-                var return_data = {}
-
-                for (var i=0  ; i< params.length; i++){
-                var keyvalue = params[i].split('=');  
-                
-                return_data[keyvalue[0]] = keyvalue[1];
-            }
-            return return_data;
-            }
-
-            var token = (extractParameters(['#access_token']));
-            var token1 = (token['#access_token']);
-
-            console.log (token1);
-
-            
-                     
-                
+        
         
                 var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
                 
@@ -188,7 +161,27 @@
                     
                     
                     var Spotdata = function (){
-                     
+                
+                
+                var extractParameters = function(){
+                
+                var query = window.location.hash;
+                var params = query.split("&");
+
+                var return_data = {}
+
+                for (var i=0  ; i< params.length; i++){
+                var keyvalue = params[i].split('=');  
+                
+                return_data[keyvalue[0]] = keyvalue[1];
+            }
+            return return_data;
+            }
+
+            var token = (extractParameters(['#access_token']));
+            var token1 = (token['#access_token']);
+                    
+                    console.log(token1); 
                     var  base_url =  'https://api.spotify.com/v1/search' 
                     var  spotParameters = {
                     q : document.getElementById('album-name').innerHTML , // selects the album name from the returned value of the LastFM API
@@ -217,10 +210,8 @@
                     var xhttp = new XMLHttpRequest();
                     xhttp.addEventListener('load', idparse)
                     xhttp.open('GET', search_url);
-        
-                   
+                    console.log(token1);
                     xhttp.setRequestHeader('Authorization','Bearer ' + token1);
-                    console.log(xhttp.setRequestHeader('Authorization','Bearer ' + token1))
                     xhttp.send(); 
                     }
                     
