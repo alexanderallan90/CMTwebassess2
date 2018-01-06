@@ -69,6 +69,7 @@
                 </select>
                 <br><br>
                 <button onclick= "GetData()">Get Album</button>
+                <button onclick= "Spotdata()">Get spot</button>
                 
                 
                 
@@ -181,6 +182,7 @@
                         var url = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
                         xhttp.open('GET', url, );
                         xhttp.send();
+                    }
                         
                         
                         
@@ -192,7 +194,7 @@
                     q : document.getElementById('album-name').innerHTML , // selects the album name from the returned value of the LastFM API
                     type: "album",
                     }
-                    
+
                     var search_url = base_url + "?" + encodeParameters(spotParameters);
                     console.log(search_url);
                     
@@ -206,7 +208,7 @@
                     xhttp.setRequestHeader('Authorization','Bearer ' + token1)
                     xhttp.send();
                     }
-                    }
+                    
                     
                     
 
