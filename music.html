@@ -164,10 +164,8 @@
                         
                         }
                 
-                    var parseSpotify = function () {
-                        var resonse = JSON.parse(this.response);
-                        console.log (response);
-                    }
+                    
+                    
                     
                     
                     // Sends the request to the API //
@@ -189,21 +187,36 @@
                     
                     
                     var Spotdata = function (){
-                      console.log(document.getElementById('album-name').innerHTML);
+                     
                     var  base_url =  'https://api.spotify.com/v1/search' 
                     var  spotParameters = {
                     q : document.getElementById('album-name').innerHTML , // selects the album name from the returned value of the LastFM API
                     type: "album",
                     }
 
+                    var idparse = function() {   
+                        var response = JSON.parse(this.response);
+                        console.log(response);
+                        var albumid = response.albums.items["0"].id
+                        console.log(albumid);
+                        return albumid;
+                    }  
+
                     var search_url = base_url + "?" + encodeParameters(spotParameters);
                     console.log(search_url);
                     
                     var xhttp = new XMLHttpRequest();
                     xhttp.open('GET', search_url);
-                    xhttp.addEventListener('load', function(){
-                        console.log(this.response);
-                    });
+                    xhttp.addEventListener('load', idparse);
+
+                    
+                    var xhttp = new XMLHttpRequest();
+                        xhttp.addEventListener('load', parseResponse);   
+                        var url = 'https://api.spotify.com/v1/albums/'+ idparse() + '/tracks'
+                        xhttp.open('GET', url, );
+                        xhttp.send();
+                        
+                    
 
                    
                     xhttp.setRequestHeader('Authorization','Bearer ' + token1)
