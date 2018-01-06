@@ -209,19 +209,20 @@
 
                     var search_url = base_url + "?" + encodeParameters(spotParameters);
                     console.log(search_url);
-                    
+                    xhttp.setRequestHeader('Authorization','Bearer ' + token1)
+                    xhttp.send();
                     var xhttp = new XMLHttpRequest();
                     xhttp.addEventListener('load', idparse)
                     xhttp.open('GET', search_url);
                     xhttp.send();
+                   
                     
                    
                         
                     
 
                    
-                    xhttp.setRequestHeader('Authorization','Bearer ' + token1)
-                    xhttp.send();
+                 
                     }
                     
                     
