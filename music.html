@@ -188,11 +188,11 @@
                     
                     var Spotdata = function (){
                     var  base_url =  'https://api.spotify.com/v1/search' 
-                    
                     var  spotParameters = {
                     q : document.getElementById('album-name').innerHTML , // selects the album name from the returned value of the LastFM API
                     type: "album",
                     }
+                    
                     var search_url = base_url + "?" + encodeParameters(spotParameters);
                     console.log(search_url);
                     
