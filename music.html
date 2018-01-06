@@ -83,6 +83,7 @@
         <div id = "albuminfo">
         <h2 id="album-name">  </h2>
            <h3>tracks</h3> 
+           <p id="id"></p>
             <ol id = "list">
              
             
@@ -195,20 +196,24 @@
                     }
 
                     var idparse = function() {   
-                        var response = JSON.parse(this.response);
-                        console.log(response);
+                        response = JSON.parse(this.response);
+                    
                         var albumid = response.albums.items["0"].id
                         console.log(albumid);
-                        return albumid;
+                        var id = document.querySelector("#id")
+                        id.innerHTML = albumid;
+                                                          
                     }  
+                   
+
 
                     var search_url = base_url + "?" + encodeParameters(spotParameters);
                     console.log(search_url);
                     
                     var xhttp = new XMLHttpRequest();
+                    xhttp.addEventListener('load', idparse)
                     xhttp.open('GET', search_url);
-                    xhttp.addEventListener('load', idparse);
-
+                    xhttp.send();
                     
                     var xhttp = new XMLHttpRequest();
                         xhttp.addEventListener('load', parseResponse);   
