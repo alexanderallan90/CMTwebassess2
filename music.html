@@ -52,7 +52,7 @@
     
     <div class = "body">
         <div class = 'Imagebackground'>
-            <image id = 'mainpic' src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt='Biffy Clyro' width = 100%></image>
+            <image src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt='Biffy Clyro' width = 100%></image>
 
               <span> <p>  Please Select an Album  </p> </span>
 
@@ -146,7 +146,9 @@
                 var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
                 
                         var processName = function(album){
-                            var list = document.querySelector('#albuminfo ol');
+                            var list = document.querySelector('#albuminfo ol')
+                            list.innerHTML = html;
+                            return tmp.textContent || tmp.innerText || "";
                             for(var i=0; i<album.length; i++) {
                                 var list_album = document.createElement('li');
                                 var text_album = document.createTextNode(album[i].name)
