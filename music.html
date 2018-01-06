@@ -71,6 +71,7 @@
                 <button><a href ='' id ='login'>Log in </a></button>
                 <button onclick= "GetData()">Get Album</button>
                 
+                
                  
             
              
@@ -80,7 +81,7 @@
         </div>
         <div id = "albuminfo">
            <h3>tracks</h3> 
-            <ol>
+            <ol id = "list">
              
             
             </ol>
@@ -94,6 +95,7 @@
         </div>
 
         <script>
+        
                 var encodeParameters = function(params) {
                   var strArray = [];
             for (var key in params) {
@@ -146,9 +148,9 @@
                 var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
                 
                         var processName = function(album){
+                            var list = document.getElementById('list');   // deletes all track names that are already in the list 
+                            list.innerHTML="";
                             var list = document.querySelector('#albuminfo ol')
-                            list.innerHTML = html;
-                            return tmp.textContent || tmp.innerText || "";
                             for(var i=0; i<album.length; i++) {
                                 var list_album = document.createElement('li');
                                 var text_album = document.createTextNode(album[i].name)
@@ -174,7 +176,8 @@
                     
                     // Sends the request to the API //
                     var GetData = function()  {
-                        var eID = document.getElementById("albums");               // Selects the chosen album form the drop down box 
+                        
+                     var eID = document.getElementById("albums");               // Selects the chosen album form the drop down box 
                             var AlbumVal = eID.options[eID.selectedIndex].value;  
                             albums = AlbumVal.replace(/\s/g, "+")                  // Inserts '+' in white spaces to allow request to send the complete album name 
                             
@@ -184,6 +187,8 @@
                         console.log(url);
                         xhttp.open('GET', url, );
                         xhttp.send();
+                        var element = document.getElementById("#albuminfo ol");
+                       
                        
                         
                 }
