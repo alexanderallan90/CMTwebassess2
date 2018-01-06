@@ -1,0 +1,114 @@
+<!DOCTYPE <html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon the Biff</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src ="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head> 
+<body>
+        
+   
+    <header>
+         
+
+        <h1 id ="title" >MON THE BIFF</h1>   
+           
+                <div class= "navbar">
+                  <div class ="dropdown">
+                  <button class = "dropbtn" ><i class = "fa fa-bars"></i> </button> 
+                  <div class = "dropdown-content">   
+                        <ul>
+                        <li><a  href="home.html">Home</a></li> 
+                        <li><a  href="music.html">Music</a></li> 
+                        <li><a  href="biographic">Biographic</a></li> 
+                        <li><a  href="home.html">Events</a></li> 
+                        <li><a  href="home.html">Shop</a></li>  
+                        </ul> 
+                  </div>
+                  </div>
+                  <ul>
+                  <li><a class= "tabs" href="home.html">Home</a></li> 
+                  <li><a class= "tabs" href="music.html">Music</a></li> 
+                  <li><a class= "tabs" href="biographic.html">Biographic</a></li> 
+                  <li><a class= "tabs" href="home.html">Events</a></li> 
+                  <li><a class= "tabs" href="home.html">Shop</a></li> 
+                  </ul>
+                  <ul class ="social-tab">
+                  <li><a href="https://twitter.com/BiffyClyro?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.facebook.com/biffyclyro/"><i class="fa fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.instagram.com/biffy_clyro/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UC66Uan5Ezzs0pWbFI3wF-Tw"><i class="fa fa-youtube-play"></i></a></li>
+                  
+                </ul> 
+              </div> 
+            
+    
+    </header>
+        <main>
+            
+
+    
+    <div class = "body">
+        <div class = 'Imagebackground'>
+            <image src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt='Biffy Clyro' width = 100%></image>
+
+              <span> <p>  Please login to spotify  </p> </span>
+
+            
+            
+                <button><a href ='' id ='login'>click to log in </a></button>
+                
+                
+                
+                 
+            
+             
+            <script>
+                
+                </script>
+        
+
+        
+
+        </div>
+        </div>
+
+        <script>
+        
+                var encodeParameters = function(params) {
+                  var strArray = [];
+            for (var key in params) {
+                if (params.hasOwnProperty(key)) {
+                    var paramString = encodeURIComponent(key) + "=" + encodeURIComponent(params[key]);
+                    strArray.push(paramString);
+                }
+            }
+            return strArray.join("&");}
+                baseurl = 'https://accounts.spotify.com/authorize/?'
+        
+                parameters = {
+                client_id: 'e958c04c91ba49ec9698bbcbd5b2a480',
+                response_type: 'token',
+                redirect_uri: 'https://alexanderallan90.github.io/CMTwebassess2/music.html',
+                show_dialog: true,
+                scope: 'user-read-recently-played playlist-read-private playlist-modify-private'
+        
+            }
+            var url = baseurl + encodeParameters(parameters);
+            var login_link = document.querySelector('#login');
+                login.href = url;
+          
+            
+          var apiKey = '0efb5f19ea5df479321ea5f060e315fc'
+                
+                       
+                       
+                        
+                
+                </script>
+        
+        </main>
+</body>   
+</html>
