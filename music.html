@@ -209,7 +209,7 @@ var extractParameters = function(){
         xhttp.setRequestHeader('Authorization','Bearer ' + token1);
         xhttp.send(); 
         console.log(id);
-        track_url = "https://api.spotify.com/v1/albums/"+id+"/tracks"
+        track_url = "https://api.spotify.com/v1/albums/"+document.getElementById('id').innerHTML+"/tracks"
         console.log(track_url);
 
         var xhttp = new XMLHttpRequest();
