@@ -89,7 +89,7 @@
             
             </ol>
         </div>
-    <div id = "tacksinfo">
+    <div id = "tracksinfo">
         <h3> Preview songs </h3>
         <ol id = "song">
 
@@ -152,8 +152,9 @@
                             for(var i=0; i<track.length; i++) {
                                 var list_track = document.createElement('li');   
                                 var text_track = document.createTextNode(track[i].preview_url)
-                                list.appendChild(list_track);
-                                list_track.appendChild(text_track);             // adds them to list 
+                                list_track.appendChild(text_track); 
+                                list.appendChild(list_track);                   // adds them to list 
+                                            
                                 
                             }
                         }
