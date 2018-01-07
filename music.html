@@ -97,6 +97,9 @@
     
         
         <script>
+
+    window.onload = (extractParameters(['#access_token']));
+                   
         
         var encodeParameters = function(params) {
                   var strArray = [];
@@ -188,8 +191,9 @@ var extractParameters = function(){
         }
         return return_data;
         }
-        console.log(token1)
+        
         var token = (extractParameters(['#access_token']));
+        console.log (token);
         var token1 = (token['#access_token']);
                     
                 
