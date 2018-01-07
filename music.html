@@ -89,7 +89,7 @@
             
             </ol>
         </div>
-    <div id = "tacks">
+    <div id = "tacksinfo">
         <h3> Preview songs </h3>
         <ol id = "song">
 
@@ -148,7 +148,7 @@
                         var processtrack = function(track){
                             var list = document.querySelector('song');   // deletes all track names that are already in the list 
                             list.innerHTML="";
-                            var list = document.querySelector('#tracks ol')  // loops through all track names
+                            var list = document.querySelector('#tracksinfo ol')  // loops through all track names
                             for(var i=0; i<track.length; i++) {
                                 var list_track = document.createElement('li');   
                                 var text_track = document.createTextNode(track[i].preview_url)
