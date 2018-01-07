@@ -146,7 +146,7 @@
                         }
 
                         var processtrack = function(track){
-                            var list = document.querySelector('song');   // deletes all track names that are already in the list 
+                            var list = document.getElementById('song');   // deletes all track names that are already in the list 
                             list.innerHTML="";
                             var list = document.querySelector('#tracksinfo ol')  // loops through all track names
                             for(var i=0; i<track.length; i++) {
