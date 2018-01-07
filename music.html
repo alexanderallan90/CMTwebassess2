@@ -91,24 +91,7 @@
     
         
         <script>
-
-var extractParameters = function(){
-    var query = window.location.hash;
-    var params = query.split("&");
-    var return_data = {};
-    for (var i=0  ; i< params.length; i++){
-    var keyvalue = params[i].split('=');  
-    return_data[keyvalue[0]] = keyvalue[1];
-        }
-        return return_data;
-        }
-        
-        window.onload = ((extractParameters(['#access_token']))['#access_token']);
-        token = ((extractParameters(['#access_token']))['#access_token']);
-        console.log (token);
-   
-                   
-        
+      
         var encodeParameters = function(params) {
                   var strArray = [];
             for (var key in params) {
@@ -147,27 +130,25 @@ var extractParameters = function(){
                         albumName.innerHTML = name;
                         
                         }
-
+                        
                        
                         
                     
                     
                     
                     // Sends the request to the API //
-                    var GetData = function()  {
+var GetData = function()  {
                         
-                     var eID = document.getElementById("albums");               // Selects the chosen album form the drop down box 
-                            var AlbumVal = eID.options[eID.selectedIndex].value;  
-                            albums = AlbumVal.replace(/\s/g, "+")                  // Inserts '+' in white spaces to allow request to send the complete album name 
+    var eID = document.getElementById("albums");               // Selects the chosen album form the drop down box 
+    var AlbumVal = eID.options[eID.selectedIndex].value;  
+    albums = AlbumVal.replace(/\s/g, "+")                  // Inserts '+' in white spaces to allow request to send the complete album name 
                             
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.addEventListener('load', parseResponse);   
-                        var url = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
-                        xhttp.open('GET', url, );
-                        xhttp.send();
-                    
-                        
-                    }
+    var xhttp = new XMLHttpRequest();
+     xhttp.addEventListener('load', parseResponse);   
+     var url = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key='+apiKey+'&artist=Biffy+clyro&album='+albums+'&format=json'
+     xhttp.open('GET', url, );
+     xhttp.send();
+    }
                         
                     
                     
@@ -189,15 +170,15 @@ var processtrack = function(track){
                                             
                                 
                             }              
-var extractParameters = function(){            // Extracts the access token from the URL
-    var query = window.location.hash;
-    var params = query.split("&");
-    var return_data = {};
-    for (var i=0  ; i< params.length; i++){
-    var keyvalue = params[i].split('=');  
-    return_data[keyvalue[0]] = keyvalue[1];
+            var extractParameters = function(){            // Extracts the access token from the URL
+            var query = window.location.hash;
+            var params = query.split("&");
+            var return_data = {};
+            for (var i=0  ; i< params.length; i++){
+                var keyvalue = params[i].split('=');  
+                return_data[keyvalue[0]] = keyvalue[1];
         }
-        return return_data;
+                return return_data;
         }
         
         var token = ((extractParameters(['#access_token']))['#access_token']);  //sets the access token as a variable
@@ -230,7 +211,7 @@ var extractParameters = function(){            // Extracts the access token from
                    
         var search_url = base_url + "?" + encodeParameters(spotParameters);
        
-       var xhttp = new XMLHttpRequest();                                // send request for search query to find the album 
+        var xhttp = new XMLHttpRequest();                                // send request for search query to find the album 
         xhttp.addEventListener('load', idparse)
         xhttp.open('GET', search_url);
         xhttp.setRequestHeader('Authorization','Bearer ' + token);
