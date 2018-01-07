@@ -50,14 +50,12 @@
             
 
     
-    <div class = "body">
-        <div class = 'Imagebackground'>
+    <div class = "image">
             <image src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt='Biffy Clyro' width = 100%></image>
 
-              <span> <p>  Please Select an Album  </p> </span>
+            
+               <p><span>  Please Select an Album </span> </p> 
 
-            
-            
                 <select id = "albums">
                   <option value="Blackened Sky">Blackened Sky</option>
                   <option value="The Vertigo of Bliss">The Vertigo of Bliss</option>
@@ -67,24 +65,22 @@
                   <option value="Opposites">Opposites</option>
                   <option value="Ellipsis">Ellipsis</option>
                 </select>
+                
                 <br><br>
-                <button onclick= "MasterButton()">Get Album</button>
-                <button onclick= "Spotdata()">Get spot</button>
+                <div class = "btn">
+                <button id = "btn1" onclick= "GetData()">Get Album</button>
+                <button id = "btn2" onclick= "Spotdata()">Get spot</button>
+              </div>
+              </div>  
                 
                 
-                
-                 
-            
-             
-            <script>
-                
-                </script>
-        </div>
+       <div class = "contents">
         <div class = "albuminfo">
         <h2 id="album-name">  </h2>
            <h3>tracks</h3> 
            <h6 id="id">  </h6>
             <ol id = "list">
+
              
             
             </ol>
@@ -103,7 +99,8 @@
 
         </div>
         </div>
-
+    
+        
         <script>
         
         var encodeParameters = function(params) {
