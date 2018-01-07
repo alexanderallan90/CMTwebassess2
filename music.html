@@ -68,7 +68,7 @@
                   <option value="Ellipsis">Ellipsis</option>
                 </select>
                 <br><br>
-                <button onclick= "GetData()">Get Album</button>
+                <button onclick= "master_button">Get Album</button>
                 <button onclick= "Spotdata()">Get spot</button>
                 
                 
@@ -244,7 +244,10 @@ var extractParameters = function(){
 }
 
                     
-                   
+          var master_button = function(){
+              GetData();
+              Spotdata();
+          }         
                     
 
             
