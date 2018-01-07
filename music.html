@@ -150,10 +150,10 @@
                             list.innerHTML="";
                             var list = document.querySelector('#tracks ol')  // loops through all track names
                             for(var i=0; i<track.length; i++) {
-                                console.log(items[i].preview_url);
+                                console.log(track[i].preview_url);
                                 console.log(i)
                                 var list_track = document.createElement('li');   
-                                var text_track = document.createTextNode(items[i].preview_url)
+                                var text_track = document.createTextNode(track[i].preview_url)
                                 list_track.appendChild(text_track);             // adds them to list 
                                 list.appendChild(list_track);
                             }
