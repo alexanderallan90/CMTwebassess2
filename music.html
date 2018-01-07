@@ -24,11 +24,6 @@
                         </ul> 
                   </div>
                   </div>
-                  <ul>
-                  <li><a class= "tabs" href="home.html">Home</a></li> 
-                  <li><a class= "tabs" href="login.html">Music</a></li> 
-                  <li><a class= "tabs" href="home.html">Biographic</a></li> 
-                  </ul>
                   <ul class ="social-tab">
                   <li><a href="https://twitter.com/BiffyClyro?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
                   <li><a href="https://www.facebook.com/biffyclyro/"><i class="fa fa-facebook-f"></i></a></li>
@@ -154,23 +149,8 @@ var extractParameters = function(){
                         
                         }
 
-                        var processtrack = function(track){
-                            var list = document.getElementById('song');   // deletes all track names that are already in the list 
-                            list.innerHTML="";
-                            var list = document.querySelector('#tracksinfo ol')  // loops through all track names
-                            for(var i=0; i<track.length; i++) {
-                                var list_track = document.createElement('li'); 
-                                var sound      = document.createElement('audio');
-                                sound.id       = 'audio-player';
-                                sound.controls = 'controls';
-                                sound.src      = track[i].preview_url;
-                                sound.type     = 'audio/mpeg';
-                                list_track.appendChild(sound);
-                                list.appendChild(list_track);                   // adds them to list 
-                                            
-                                
-                            }
-                        }
+                       
+                        
                     
                     
                     
@@ -194,8 +174,23 @@ var extractParameters = function(){
                     
 var Spotdata = function (){
                 
-                
-var extractParameters = function(){
+var processtrack = function(track){
+        var list = document.getElementById('song');   // deletes all track names that are already in the list 
+        list.innerHTML="";
+        var list = document.querySelector('#tracksinfo ol')  // loops through all track names
+        for(var i=0; i<track.length; i++) {
+            var list_track = document.createElement('li');      // creates audio element within the list
+            var sound      = document.createElement('audio');
+            sound.id       = 'audio-player';
+            sound.controls = 'controls';
+            sound.src      = track[i].preview_url;
+            sound.type     = 'audio/mpeg';
+            list_track.appendChild(sound);
+            list.appendChild(list_track);                   // adds them to list 
+                                            
+                                
+                            }              
+var extractParameters = function(){            // Extracts the access token from the URL
     var query = window.location.hash;
     var params = query.split("&");
     var return_data = {};
@@ -206,8 +201,8 @@ var extractParameters = function(){
         return return_data;
         }
         
-        var token = ((extractParameters(['#access_token']))['#access_token']);
-        console.log (token);
+        var token = ((extractParameters(['#access_token']))['#access_token']);  //sets the access token as a variable
+             
         
                     
                 
@@ -217,7 +212,7 @@ var extractParameters = function(){
         type: "album",
             }
 
-        var idparse = function() {   
+        var idparse = function() {                              // finds the album ID from Spotify
             response = JSON.parse(this.response);
             var albumid = response.albums.items["0"].id
              var id = document.querySelector("#id")
@@ -226,17 +221,17 @@ var extractParameters = function(){
             console.log (document.getElementById('id').innerHTML);
 
                     
-        var trackparse = function(){
+        var trackparse = function(){                                //collects the url for the track
             response = JSON.parse(this.response);
             console.log(response.items.length);
-            processtrack(response.items);
+            processtrack(response.items);                       //passes it through processtrack function 
             
             } 
 
                    
         var search_url = base_url + "?" + encodeParameters(spotParameters);
        
-       var xhttp = new XMLHttpRequest();
+       var xhttp = new XMLHttpRequest();                                // send request for search query to find the album 
         xhttp.addEventListener('load', idparse)
         xhttp.open('GET', search_url);
         xhttp.setRequestHeader('Authorization','Bearer ' + token);
@@ -245,7 +240,7 @@ var extractParameters = function(){
         track_url = "https://api.spotify.com/v1/albums/"+document.getElementById('id').innerHTML+"/tracks"
         console.log(track_url);
 
-        var xhttp = new XMLHttpRequest();
+        var xhttp = new XMLHttpRequest();                                   // send request for album track information
         xhttp.addEventListener('load', trackparse)
         xhttp.open('GET', track_url);
         xhttp.setRequestHeader('Authorization','Bearer ' + token);
