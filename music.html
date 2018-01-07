@@ -134,6 +134,7 @@
                         processName(response.album.tracks.track);  
                         var albumart = document.querySelector('#album_art'); 
                         albumart.src = imgurl;                              // sets image url for album art
+                        document.getElementById('albumpic').style.display = 'block';
                         name = response.album.name;                            // finds name of the album 
                         var albumName = document.querySelector("#album-name"); 
                         albumName.innerHTML = name;
@@ -239,10 +240,8 @@ var extractParameters = function(){
 }
 
                     
-          var MasterButton = function(){
-              GetData();
-              Spotdata();
-          }         
+        
+            
                     
 
             

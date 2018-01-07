@@ -5,6 +5,9 @@
     font-family:Rakkas;
 
 }
+#albumpic{
+    display: none;
+}
 .body {
     background-color: black;
 }
