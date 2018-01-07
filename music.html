@@ -150,9 +150,13 @@
                             list.innerHTML="";
                             var list = document.querySelector('#tracksinfo ol')  // loops through all track names
                             for(var i=0; i<track.length; i++) {
-                                var list_track = document.createElement('li');   
-                                var text_track = document.createTextNode(track[i].preview_url)
-                                list_track.appendChild(text_track); 
+                                var list_track = document.createElement('li'); 
+                                var sound      = document.createElement('audio');
+                                sound.id       = 'audio-player';
+                                sound.controls = 'controls';
+                                sound.src      = track[i].preview_url;
+                                sound.type     = 'audio/mpeg';
+                                list_track.appendChild(sound);
                                 list.appendChild(list_track);                   // adds them to list 
                                             
                                 
