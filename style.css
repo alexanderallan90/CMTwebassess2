@@ -73,15 +73,20 @@
 .tracksinfo{
     width:33%;
 }
-.trachinfo h3{
+.trackinfo h3{
     font: bold 24px/45px Helvetica, Sans-Serif;
     text-align: center;
 }
 
-.albuminfo{
+.albuminfo h2 h3{
     font: bold 24px/45px Helvetica, Sans-Serif;
     text-align: center;
 }
+.albuminfo li{
+font: bold 15px Helvetica, Sans-Serif;
+
+}
+
 .albumpic{
     width:33%;
 }
