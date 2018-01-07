@@ -94,7 +94,7 @@ main h1{
    
 
 }
-#album-name #id{
+#album-name h6{
     display: none;
 }
 
