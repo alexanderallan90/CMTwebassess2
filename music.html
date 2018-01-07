@@ -89,14 +89,14 @@
 
 
         </ol>
-        </div>
+        
     </div>
-    <div id = "albumpic">
+    <div id = "albumpic" style = display:none;>
         <img src="" alt="Album Picture" id="album_art">
 
         
-
-        </div>
+</div>
+</div>
        
     
         
@@ -135,7 +135,6 @@
                         processName(response.album.tracks.track);  
                         var albumart = document.querySelector('#album_art'); 
                         albumart.src = imgurl;                              // sets image url for album art
-                        document.getElementById('albumpic').style.display = 'block';
                         name = response.album.name;                            // finds name of the album 
                         var albumName = document.querySelector("#album-name"); 
                         albumName.innerHTML = name;
