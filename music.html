@@ -192,7 +192,7 @@ var extractParameters = function(){
         return return_data;
         }
         
-        var token = (extractParameters(['#access_token']));
+        var token = ((extractParameters(['#access_token']))['#access_token']);
         console.log (token);
         var token1 = (token['#access_token']);
                     
