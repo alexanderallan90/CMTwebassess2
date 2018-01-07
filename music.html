@@ -145,12 +145,13 @@
                         
                         }
 
-                        var processtrack = function(album){
+                        var processtrack = function(track){
                             var list = document.getElementById('song');   // deletes all track names that are already in the list 
                             list.innerHTML="";
                             var list = document.querySelector('#tracks ol')  // loops through all track names
-                            for(var i=0; i<album.length; i++) {
+                            for(var i=0; i<track.length; i++) {
                                 console.log([i].preview_url);
+                                console.log(i)
                                 var list_track = document.createElement('li');   
                                 var text_track = document.createTextNode([i].preview_url)
                                 list_track.appendChild(text_track);             // adds them to list 
