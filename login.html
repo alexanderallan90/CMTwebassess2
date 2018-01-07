@@ -48,8 +48,9 @@
 
          <p><span> Please login to spotify </span></p>
 
-        <button><a href ='' id ='login'>log in </a></button>
+        <a href ='' id ='login'>log in </a>
         
+         
 
         
 
@@ -77,6 +78,7 @@
                 scope: 'user-read-recently-played playlist-read-private playlist-modify-private'
         
             }
+        
             var url = baseurl + encodeParameters(parameters);
             var login_link = document.querySelector('#login');
                 login.href = url;
