@@ -5,6 +5,9 @@
     font-family:Rakkas;
 
 }
+.body {
+    background-color: black;
+}
 
 .image {
     position: relative; 
