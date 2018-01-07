@@ -67,6 +67,15 @@
     display: inline-flex;
     width: 100%;
 }
+.albuminfo{
+    width:33%;
+}
+.tracksinfo{
+    width:33%;
+}
+.albumpic{
+    width:33%;
+}
 
 
 
