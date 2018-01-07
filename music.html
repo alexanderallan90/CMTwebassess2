@@ -89,13 +89,13 @@
 
 
         </ol>
-        </div>
+        
     </div>
     <div id = "albumpic">
         <img src="" alt="Album Picture" id="album_art">
 
         
-
+        </div>
         </div>
        
     
@@ -150,7 +150,6 @@
                                 var list_track = document.createElement('li'); 
                                 var sound      = document.createElement('audio');
                                 sound.id       = 'audio-player';
-                                sound.controls = 'controls';
                                 sound.src      = track[i].preview_url;
                                 sound.type     = 'audio/mpeg';
                                 list_track.appendChild(sound);
