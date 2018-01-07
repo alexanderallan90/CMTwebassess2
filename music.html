@@ -80,7 +80,7 @@
                 
                 </script>
         </div>
-        <div id = "albuminfo">
+        <div class = "albuminfo">
         <h2 id="album-name">  </h2>
            <h3>tracks</h3> 
            <h6 id="id">  </h6>
@@ -124,7 +124,7 @@
                         var processName = function(album){
                             var list = document.getElementById('list');   // deletes all track names that are already in the list 
                             list.innerHTML="";
-                            var list = document.querySelector('#albuminfo ol')  // loops through all track names
+                            var list = document.querySelector('.albuminfo ol')  // loops through all track names
                             for(var i=0; i<album.length; i++) {
                                 var list_album = document.createElement('li');   
                                 var text_album = document.createTextNode(album[i].name)
