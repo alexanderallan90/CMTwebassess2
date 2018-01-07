@@ -98,6 +98,20 @@
         
         <script>
 
+var extractParameters = function(){
+    var query = window.location.hash;
+    var params = query.split("&");
+    var return_data = {};
+    for (var i=0  ; i< params.length; i++){
+    var keyvalue = params[i].split('=');  
+    return_data[keyvalue[0]] = keyvalue[1];
+        }
+        return return_data;
+        }
+        
+        window.onload = var token = ((extractParameters(['#access_token']))['#access_token']);
+        
+        console.log (token);
    
                    
         
