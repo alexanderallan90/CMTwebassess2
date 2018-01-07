@@ -213,7 +213,7 @@ var extractParameters = function(){
                     
         var trackparse = function(){
             response = JSON.parse(this.response);
-            console.log(response.items[0].preview_url);
+            console.log(response.items.length);
             processtrack(response.items);
             
             } 
