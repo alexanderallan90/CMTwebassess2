@@ -194,7 +194,7 @@ var extractParameters = function(){
         
         var token = ((extractParameters(['#access_token']))['#access_token']);
         console.log (token);
-        var token1 = (token['#access_token']);
+        
                     
                 
         var  base_url =  'https://api.spotify.com/v1/search' 
@@ -225,7 +225,7 @@ var extractParameters = function(){
        var xhttp = new XMLHttpRequest();
         xhttp.addEventListener('load', idparse)
         xhttp.open('GET', search_url);
-        xhttp.setRequestHeader('Authorization','Bearer ' + token1);
+        xhttp.setRequestHeader('Authorization','Bearer ' + token);
         xhttp.send(); 
         console.log(id);
         track_url = "https://api.spotify.com/v1/albums/"+document.getElementById('id').innerHTML+"/tracks"
@@ -234,7 +234,7 @@ var extractParameters = function(){
         var xhttp = new XMLHttpRequest();
         xhttp.addEventListener('load', trackparse)
         xhttp.open('GET', track_url);
-        xhttp.setRequestHeader('Authorization','Bearer ' + token1);
+        xhttp.setRequestHeader('Authorization','Bearer ' + token);
         xhttp.send();
          
 }
