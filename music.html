@@ -150,6 +150,7 @@
                             list.innerHTML="";
                             var list = document.querySelector('#tracks ol')  // loops through all track names
                             for(var i=0; i<album.length; i++) {
+                                console.log([i].preview_url);
                                 var list_track = document.createElement('li');   
                                 var text_track = document.createTextNode([i].preview_url)
                                 list_track.appendChild(text_track);             // adds them to list 
@@ -213,6 +214,7 @@ var extractParameters = function(){
         var trackparse = function(){
             response = JSON.parse(this.response);
             console.log(response.items[0].preview_url);
+            processtrack(response.items);
             
             } 
 
