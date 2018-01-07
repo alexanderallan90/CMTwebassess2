@@ -152,8 +152,9 @@
                             for(var i=0; i<track.length; i++) {
                                 var list_track = document.createElement('li');   
                                 var text_track = document.createTextNode(track[i].preview_url)
-                                list_track.appendChild(text_track);             // adds them to list 
                                 list.appendChild(list_track);
+                                list_track.appendChild(text_track);             // adds them to list 
+                                
                             }
                         }
                     
