@@ -94,6 +94,9 @@ main h1{
    
 
 }
+#album-name #id{
+    display: none;
+}
 
 @media only screen and (max-width: 900px) {
     .bodyimg h1 { 
