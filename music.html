@@ -83,7 +83,7 @@
         <div id = "albuminfo">
         <h2 id="album-name">  </h2>
            <h3>tracks</h3> 
-           <h6 id="id"></h6>
+           <h6 id="id">  </h6>
             <ol id = "list">
              
             
@@ -195,7 +195,7 @@ var extractParameters = function(){
                     
         var trackparse = function(){
             response = JSON.parse(this.response);
-            console.log(response);
+            console.log(response.items["0".preview_url]);
 
         } 
 
