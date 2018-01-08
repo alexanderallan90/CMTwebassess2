@@ -82,7 +82,7 @@
         
     </div>
     <div id = "albumpic">
-        
+        <img src="" alt="Album Picture" id="album_art">
 
         
 </div>
@@ -123,8 +123,7 @@
                         var u = response.album.image[3];        // Finds the album art url 
                         var imgurl = (u['#text']);  
                         processName(response.album.tracks.track);  
-                        var albumpos = document.querySelector('#album_art');
-                        var albumart = document.createElement('img')
+                        var albumart = document.querySelector('#album_art');
                         albumart.src = imgurl;                              // sets image url for album art
                         name = response.album.name;                            // finds name of the album 
                         var albumName = document.querySelector("#album-name"); 
