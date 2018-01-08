@@ -39,7 +39,7 @@
 
     
     <div class = "image">
-            <img src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt='Biffy Clyro' width = 100%> 
+            <img src="https://www.theedgesusu.co.uk/wp-content/uploads/2016/07/photo-credit-luke-gilford-extralarge_1462840322948.jpg" alt='Biffy Clyro' style="width:100%;"> 
 
             
                <p><span>  Please Select an Album </span> </p> 
@@ -64,7 +64,7 @@
                 
        <div class = "contents">
         <div class = "albuminfo">
-        <h2 id="album-name">  </h2>
+        <h2 id="album-name"> </h2>
            <h3>tracks</h3> 
            <h6 id="id">  </h6>
             <ol id = "list">
@@ -82,7 +82,7 @@
         
     </div>
     <div id = "albumpic">
-        <img src="" alt="Album Picture" id="album_art">
+        
 
         
 </div>
@@ -123,7 +123,8 @@
                         var u = response.album.image[3];        // Finds the album art url 
                         var imgurl = (u['#text']);  
                         processName(response.album.tracks.track);  
-                        var albumart = document.querySelector('#album_art'); 
+                        var albumpos = document.querySelector('#album_art');
+                        var albumart = document.createElement('img')
                         albumart.src = imgurl;                              // sets image url for album art
                         name = response.album.name;                            // finds name of the album 
                         var albumName = document.querySelector("#album-name"); 
@@ -197,9 +198,8 @@ var processtrack = function(track){
             var albumid = response.albums.items["0"].id
              var id = document.querySelector("#id")
              id.innerHTML = albumid;
-                    } 
-            console.log (document.getElementById('id').innerHTML);
-
+             } 
+           
                     
         var trackparse = function(){                                //collects the url for the track
             response = JSON.parse(this.response);
@@ -216,9 +216,8 @@ var processtrack = function(track){
         xhttp.open('GET', search_url);
         xhttp.setRequestHeader('Authorization','Bearer ' + token);
         xhttp.send(); 
-        console.log(id);
         track_url = "https://api.spotify.com/v1/albums/"+document.getElementById('id').innerHTML+"/tracks"
-        console.log(track_url);
+       
 
         var xhttp = new XMLHttpRequest();                                   // send request for album track information
         xhttp.addEventListener('load', trackparse)
